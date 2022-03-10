@@ -10,6 +10,7 @@ namespace ProyectoETS
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Juanquita Mariquita");
         }
     }
 }
