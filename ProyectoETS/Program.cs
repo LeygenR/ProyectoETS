@@ -11,6 +11,7 @@ namespace ProyectoETS
         static void Main(string[] args)
         {
             Console.WriteLine("Juanquita Mariquita");
+            Console.WriteLine("Tu madre si");
         }
     }
 }
