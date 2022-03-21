@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProyectoETS
 {
-    class Program
+    class Tratar_Fechas
     {
-        static void Main(string[] args)
-        {
-            string fecha1 = "";
-        }
+        
     }
 }
