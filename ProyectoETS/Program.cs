@@ -11,6 +11,11 @@ namespace ProyectoETS
         static void Main(string[] args)
         {
             string fecha1 = "";
+            if(Pedir_Check_Fecha.PedirFecha(ref fecha1))
+            {
+                DateTime.Parse(fecha1);
+            }
+            
         }
     }
 }
