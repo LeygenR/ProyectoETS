@@ -6,19 +6,35 @@ namespace ProyectoETS
     {
         static void Main(string[] args)
         {
-            bool noerror = true;
-            string fecha1 = "10/10/-200";
-            string fecha2 = "19/12/50";
-            int diasAdicionakes = Tratar_Fechas.DiferenciaAños(ref noerror, fecha1, fecha2);
-            if (noerror)
+            DateTime fecha1 =  new DateTime();
+            DateTime fecha2 =  new DateTime();
+            if(Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1))
             {
+                if(Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2))
+                {
 
+                }
             }
-            if (Pedir_Check_Fecha.PedirFecha(ref fecha1))
-            {
-                DateTime.Parse(fecha1);
-            }
+            Mensajes.MakeSeeYou();
+        }
+    }
+    class Mensajes
+    {
+        public static void MakeSeeYou()
+        {
+            Console.Write("\nPulsa una tecla para finalizar ....");
+            Console.ReadKey(true);
+        }
 
+        public static void MostrarError(string mensaje)
+        {
+            Console.Clear();
+            Console.WriteLine("<<<<<<<<<<ERROR>>>>>>>>>>");
+            Console.WriteLine("<<<<<>>>>>>>>>>>>>>>>>>>>");
+            Console.WriteLine(mensaje);
+            Console.WriteLine("<<<<<>>>>>>>>>>>>>>>>>>>>");
+            Console.Write("\nPulsa una tecla para finalizar ...");
+            Console.ReadKey(true);
         }
     }
 }
