@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace ProyectoETS
 {
     class Pedir_Check_Fecha
     {
-        public static bool PedirFecha(ref string fecha)
+        public static string PedirFecha()
         {
             bool salida = false;
+            string fecha = "";
+
             do
             {
-
-                Console.Write("Introduzca una/otra fecha de nacimiento");
-
                 Console.WriteLine("Según el formato \"dd/mm/yyyy\".");
                 Console.Write("Introduzca una/otra fecha de nacimiento: ");
+
                 fecha = Console.ReadLine();
-                if(fecha != "")
+
+                if (fecha != "")
                 {
+                    
                     salida = true;
+
                 }
                 else
                 {
@@ -29,10 +29,20 @@ namespace ProyectoETS
                     Console.WriteLine("Por favor, escriba la fecha.");
                     Console.ReadKey(true);
                 }
-
             }
             while (!salida);
-            return (salida);
+
+            return fecha;
+        }
+
+        public static void ValidarFecha()
+        {
+            string fecha = PedirFecha();
+
+            CultureInfo cultureInfoES = new CultureInfo("es-SP");
+
+            DateTime FechaValida = DateTime.Parse(fecha,cultureInfoES);
+
         }
     }
 }
