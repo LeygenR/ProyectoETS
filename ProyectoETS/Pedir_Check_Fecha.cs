@@ -13,6 +13,9 @@ namespace ProyectoETS
             bool salida = false;
             do
             {
+
+                Console.Write("Introduzca una/otra fecha de nacimiento");
+
                 Console.WriteLine("Según el formato \"dd/mm/yyyy\".");
                 Console.Write("Introduzca una/otra fecha de nacimiento: ");
                 fecha = Console.ReadLine();
@@ -26,6 +29,7 @@ namespace ProyectoETS
                     Console.WriteLine("Por favor, escriba la fecha.");
                     Console.ReadKey(true);
                 }
+
             }
             while (!salida);
             return (salida);
