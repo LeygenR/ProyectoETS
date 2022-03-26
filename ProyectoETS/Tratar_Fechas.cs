@@ -18,7 +18,7 @@ namespace ProyectoETS
             int dias = difFechas.Days + sumarDiaBisiesto(anho1,anho2);
             return dias;
         }
-        private static int sumarDiaBisiesto(int anho1, int anho2)
+        private static int SumarDiaBisiesto(int anho1, int anho2)
         {
             const int INICIOBISIESTO = 1582;
             int diasSumar = 0;

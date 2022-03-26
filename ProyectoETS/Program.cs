@@ -12,7 +12,9 @@ namespace ProyectoETS
             {
                 if(Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2))
                 {
-
+                    int diferenciaAnhos = 0;
+                    int difDias = 0;
+                    Tratar_Fechas.DiferenciaAñosYdias(fecha1,fecha2, ref diferenciaAnhos, ref difDias)
                 }
             }
             Mensajes.MakeSeeYou();

@@ -46,5 +46,9 @@ namespace ProyectoETS
             Console.ReadKey(true);
             return(noerror);
         }
+        public static void CompararAnho(ref int anho1, ref int anho2)
+        {
+
+        }
     }
 }
