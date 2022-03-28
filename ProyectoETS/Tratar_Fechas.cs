@@ -8,13 +8,13 @@ namespace ProyectoETS
         {
             OrdenarFechas(ref fecha1, ref fecha2);
             FechasDif[] fechas = new FechasDif[totalFechas];
-
+            DateTime fechaActual = DateTime.Now;
             fechas[0].fecha1 = fecha1;
             fechas[0].fecha2 = fecha2;
             fechas[1].fecha1 = fecha1;
             fechas[1].fecha2 = DateTime.Now;
             fechas[2].fecha1 = fecha2;
-            fechas[2].fecha1 = DateTime.Now;
+            fechas[2].fecha2 = fechaActual;
             return fechas;
         }
         private static void OrdenarFechas(ref DateTime fecha1, ref DateTime fecha2)
