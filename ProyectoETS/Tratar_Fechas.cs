@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 namespace ProyectoETS
 {
     class Tratar_Fechas
@@ -43,7 +42,7 @@ namespace ProyectoETS
                 fechas[count].difDias = CalcularDiferenciaDias(fechas[count].fecha1, fechas[count].fecha2, fechas[count].fecha1.Year, fechas[count].fecha2.Year);
             }
         }
-        private static int CalcularDiferenciaAnhos(DateTime fecha1,DateTime fecha2)
+        private static int CalcularDiferenciaAnhos(DateTime fecha1, DateTime fecha2)
         {
             int anho1 = fecha1.Year;
             int anho2 = fecha2.Year;
@@ -62,10 +61,10 @@ namespace ProyectoETS
         /// <param name="anho1"></param>
         /// <param name="anho2"></param>
         /// <returns>INT Diferencia dias entre fechas</returns>
-        private static int CalcularDiferenciaDias(DateTime fecha1, DateTime fecha2,int anho1,int anho2)
+        private static int CalcularDiferenciaDias(DateTime fecha1, DateTime fecha2, int anho1, int anho2)
         {
             TimeSpan difFechas = fecha2 - fecha1; //TimeSpan nos permite ver la diferencia entre dos fechas
-            int dias = difFechas.Days + SumarDiaBisiesto(anho1,anho2);
+            int dias = difFechas.Days + SumarDiaBisiesto(anho1, anho2);
             return dias;
         }
         /// <summary>
@@ -100,8 +99,8 @@ namespace ProyectoETS
             }
             else
             {
-                Mensajes.MostrarError("El año : " + anho1.ToString() + " es inferior al año " + INICIOBISIESTO+ "\nNo se sumarán dias adicionales, " +
-                                       "ya que fechas inferiores a "+INICIOBISIESTO+ " no cuentan para ser años bisiestos");
+                Mensajes.MostrarError("El año : " + anho1.ToString() + " es inferior al año " + INICIOBISIESTO + "\nNo se sumarán dias adicionales, " +
+                                       "ya que fechas inferiores a " + INICIOBISIESTO + " no cuentan para ser años bisiestos");
             }
             return diasSumar;
         }

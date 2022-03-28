@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Collections.Generic;
 
 
 namespace ProyectoETS
@@ -21,7 +20,7 @@ namespace ProyectoETS
                 Console.WriteLine("Según el formato \"dd/MM/yyyy\".");
                 Console.Write("Introduzca una/otra fecha de nacimiento: ");
                 fecha = Console.ReadLine();
-                if(fecha != "")
+                if (fecha != "")
                 {
                     salida = true;
                 }
@@ -46,18 +45,18 @@ namespace ProyectoETS
             string formatEs = "dd/MM/yyyy";
 
             CultureInfo cultureInfoES = new CultureInfo("es-SP");
-            if(DateTime.TryParseExact(fecha, formatEs, cultureInfoES, DateTimeStyles.None, out fechaValid))
+            if (DateTime.TryParseExact(fecha, formatEs, cultureInfoES, DateTimeStyles.None, out fechaValid))
             {
                 Console.WriteLine("\nFecha en el formato correcto");
-                Console.WriteLine("\t"+fechaValid.ToShortDateString());
-                noerror=true;
+                Console.WriteLine("\t" + fechaValid.ToShortDateString());
+                noerror = true;
             }
             else
             {
                 Mensajes.MostrarError("La fecha introducida no está en el formato solicitado");
             }
             Console.ReadKey(true);
-            return(noerror);
+            return (noerror);
         }
     }
 }

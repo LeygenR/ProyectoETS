@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 namespace ProyectoETS
 {
 
@@ -17,13 +16,13 @@ namespace ProyectoETS
     {
         static void Main(string[] args)
         {
-            DateTime fecha1 =  new DateTime();
-            DateTime fecha2 =  new DateTime();
+            DateTime fecha1 = new DateTime();
+            DateTime fecha2 = new DateTime();
             const int TOTALFECHAS = 3;
             FechasDif[] fechas = new FechasDif[TOTALFECHAS];
             if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1))
             {
-                if(Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2))
+                if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2))
                 {
                     fechas = Tratar_Fechas.MeterFechasLista(TOTALFECHAS, fecha1, fecha2);
                     Tratar_Fechas.DiferenciaFechasDadas(ref fechas);
@@ -60,5 +59,5 @@ namespace ProyectoETS
             MakeSeeYou();
         }
     }
-   
+
 }
