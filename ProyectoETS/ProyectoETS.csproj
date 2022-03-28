@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mostrado.cs" />
     <Compile Include="Pedir_Check_Fecha.cs" />
     <Compile Include="Tratar_Fechas.cs" />
     <Compile Include="Program.cs" />

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Globalization;
+using System.Collections.Generic;
+
 
 namespace ProyectoETS
 {
@@ -21,7 +23,7 @@ namespace ProyectoETS
                 }
                 else
                 {
-                    Mensajes.MostrarError("No ha introducido nada.")
+                    Mensajes.MostrarError("No ha introducido nada.");
                 }
             }
             while (!salida);

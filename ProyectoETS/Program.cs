@@ -1,20 +1,30 @@
 ﻿using System;
-
+using System.Collections.Generic;
 namespace ProyectoETS
 {
+    public struct FechasDif
+    {
+        public DateTime fecha1;
+        public DateTime fecha2;
+        public int difAnhos;
+        public int difDias;
+    }
     class Program
     {
         static void Main(string[] args)
         {
             DateTime fecha1 =  new DateTime();
             DateTime fecha2 =  new DateTime();
-            if(Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1))
+            const int TOTALFECHAS = 3;
+            FechasDif[] fechas = new FechasDif[TOTALFECHAS];
+            if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1))
             {
                 if(Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2))
                 {
-                    int diferenciaAnhos = 0;
-                    int difDias = 0;
-                    Tratar_Fechas.DiferenciaAñosYdias(fecha1,fecha2, ref diferenciaAnhos, ref difDias)
+                    fechas = Tratar_Fechas.MeterFechasLista(TOTALFECHAS, fecha1, fecha2);
+                    Tratar_Fechas.DiferenciaFechasDadas(ref fechas);
+                    Mostrado.MostrarDiferencia(fechas);
+
                 }
             }
             Mensajes.MakeSeeYou();
@@ -24,7 +34,7 @@ namespace ProyectoETS
     {
         public static void MakeSeeYou()
         {
-            Console.Write("\nPulsa una tecla para finalizar ....");
+            Console.WriteLine("\nPulsa una tecla para finalizar ....");
             Console.ReadKey(true);
         }
 
@@ -35,8 +45,8 @@ namespace ProyectoETS
             Console.WriteLine("<<<<<>>>>>>>>>>>>>>>>>>>>");
             Console.WriteLine(mensaje);
             Console.WriteLine("<<<<<>>>>>>>>>>>>>>>>>>>>");
-            Console.Write("\nPulsa una tecla para finalizar ...");
-            Console.ReadKey(true);
+            MakeSeeYou();
         }
     }
+   
 }
