@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 namespace ProyectoETS
 {
+
+    /// <summary>
+    /// Estructura de fechas y DateTime;
+    /// </summary>
     public struct FechasDif
     {
         public DateTime fecha1;
@@ -32,12 +36,20 @@ namespace ProyectoETS
     }
     class Mensajes
     {
+
+        /// <summary>
+        /// Funcion de finalización del programa
+        /// </summary>
         public static void MakeSeeYou()
         {
             Console.WriteLine("\nPulsa una tecla para finalizar ....");
             Console.ReadKey(true);
         }
 
+        /// <summary>
+        /// Funcion del mostrado al usuario.
+        /// </summary>
+        /// <param name="mensaje"></param>
         public static void MostrarError(string mensaje)
         {
             Console.Clear();

@@ -7,6 +7,10 @@ namespace ProyectoETS
 {
     class Pedir_Check_Fecha
     {
+        /// <summary>
+        /// Función de pedida e introducción de la fecha.
+        /// </summary>
+        /// <returns>Fecha con el formato de barras. </returns>
         private static string PedirFecha()
         {
             string fecha;
@@ -29,6 +33,12 @@ namespace ProyectoETS
             while (!salida);
             return (fecha);
         }
+
+        /// <summary>
+        /// Comprueba que la fecha está en el formato correcto.
+        /// </summary>
+        /// <param name="fechaValid"></param>
+        /// <returns>Fecha valida para el datetime</returns>
         public static bool ValidarFormatoFecha(ref DateTime fechaValid)
         {
             bool noerror = false;
@@ -48,10 +58,6 @@ namespace ProyectoETS
             }
             Console.ReadKey(true);
             return(noerror);
-        }
-        public static void CompararAnho(ref int anho1, ref int anho2)
-        {
-
         }
     }
 }
