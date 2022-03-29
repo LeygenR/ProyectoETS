@@ -1,8 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Globalization;
-using static ProyectoETS.Tratar_Fechas;
-using static ProyectoETS.Pedir_Check_Fecha;
 using System;
+using ProyectoETS;
 
 namespace PruebasProyectoETS
 {
@@ -15,24 +13,26 @@ namespace PruebasProyectoETS
             
         }*/
         [TestMethod]
-        public void TestDiffDia()
+        public void Test_Bisiesto()
         {
-            DateTime fecha1 = new DateTime(17/01/1999);
-            DateTime fecha2 = new DateTime(21/03/1865);
-            int diff = 134;
-            Assert.AreEqual(diff, CalcularDiferenciaAnhos(fecha1, fecha2));
+            int anho1 = 2001;
+            int anho2 = 2005;
+            int diasAdicional = 1;
+            Assert.AreEqual(diasAdicional, Tratar_Fechas.SumarDiaBisiesto(anho1, anho2));
         }
 
-       /* [TestMethod]
-        public void TestDiffAnhos()
-        {
+         [TestMethod]
+         public void Test_difDias()
+         {
+            int anho1 = 2001;
+            int anho2 = 2002;
+            int añoddof = 
+         }
 
-        }
+         [TestMethod]
+         public void TestDiffActual()
+         {
 
-        [TestMethod]
-        public void TestDiffActual()
-        {
-
-        }*/
+         }*/
     }
 }

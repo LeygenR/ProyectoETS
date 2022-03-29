@@ -20,13 +20,13 @@ namespace ProyectoETS
                 Console.WriteLine("Según el formato \"dd/MM/yyyy\".");
                 Console.Write("Introduzca una/otra fecha de nacimiento: ");
                 fecha = Console.ReadLine();
-                if(fecha != "")
+                if (fecha != "")
                 {
                     salida = true;
                 }
                 else
                 {
-                    Mensajes.MostrarError("No ha introducido nada.");
+                    Mostrado.MostrarError("No ha introducido nada.");
                 }
             }
             while (!salida);
@@ -38,7 +38,7 @@ namespace ProyectoETS
         /// </summary>
         /// <param name="fechaValid"></param>
         /// <returns>Fecha valida para el datetime</returns>
-        public static bool ValidarFormatoFecha(ref DateTime fechaValid,ref string fechaEpoca)
+        public static bool ValidarFormatoFecha(ref DateTime fechaValid, ref string fechaEpoca)
         {
             bool noerror = false;
             string fecha = PedirFecha();
@@ -49,25 +49,29 @@ namespace ProyectoETS
             if (DateTime.TryParseExact(fecha, formatEs, cultureInfoES, DateTimeStyles.None, out fechaValid))
             {
                 Console.WriteLine("\nFecha en el formato correcto");
-                Console.WriteLine("\t" + fechaValid.ToShortDateString()+ " " + fechaEpoca);
+                Console.WriteLine("\t" + fechaValid.ToShortDateString() + " " + fechaEpoca);
                 noerror = true;
             }
             else
             {
-                Mensajes.MostrarError("La fecha introducida no está en el formato solicitado");
+                Mostrado.MostrarError("La fecha introducida no está en el formato solicitado");
             }
             Console.ReadKey(true);
             return (noerror);
         }
+        /// <summary>
+        /// pedimos al usuario si la fecha es AC o DC
+        /// </summary>
+        /// <returns>AC || DC</returns>
         public static string PedirEpoca()
         {
-            string epoca = "";
+            string epoca;
             bool valid = false;
             do
             {
                 Console.WriteLine("Indique con AC o DC la epoca de la fecha");
                 epoca = Console.ReadLine().ToUpper().Trim();
-                if((epoca.Equals("AC")) || epoca.Equals("DC"))
+                if ((epoca.Equals("AC")) || epoca.Equals("DC"))
                 {
                     valid = true;
                 }
