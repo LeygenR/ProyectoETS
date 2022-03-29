@@ -21,14 +21,10 @@ namespace ProyectoETS
             string fecha2Epoca = "";
             const int TOTALFECHAS = 3;
             FechasDif[] fechas = new FechasDif[TOTALFECHAS];
-<<<<<<< HEAD
 
-            if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1,fecha1Epoca))
-=======
-            if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1))
->>>>>>> parent of 318e5dd (cambios SIn nada)
+            if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1,ref fecha1Epoca))
             {
-                if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2,fecha2Epoca))
+                if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2,ref fecha2Epoca))
                 {
                     fechas = Tratar_Fechas.MeterFechasLista(TOTALFECHAS, fecha1, fecha2);
                     Tratar_Fechas.DiferenciaFechasDadas(ref fechas);

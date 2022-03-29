@@ -38,17 +38,18 @@ namespace ProyectoETS
         /// </summary>
         /// <param name="fechaValid"></param>
         /// <returns>Fecha valida para el datetime</returns>
-        public static bool ValidarFormatoFecha(ref DateTime fechaValid)
+        public static bool ValidarFormatoFecha(ref DateTime fechaValid,ref string fechaEpoca)
         {
             bool noerror = false;
             string fecha = PedirFecha();
+            fechaEpoca = PedirEpoca();
             string formatEs = "dd/MM/yyyy";
 
             CultureInfo cultureInfoES = new CultureInfo("es-SP");
             if (DateTime.TryParseExact(fecha, formatEs, cultureInfoES, DateTimeStyles.None, out fechaValid))
             {
                 Console.WriteLine("\nFecha en el formato correcto");
-                Console.WriteLine("\t" + fechaValid.ToShortDateString());
+                Console.WriteLine("\t" + fechaValid.ToShortDateString()+ " " + fechaEpoca);
                 noerror = true;
             }
             else
@@ -57,6 +58,27 @@ namespace ProyectoETS
             }
             Console.ReadKey(true);
             return (noerror);
+        }
+        public static string PedirEpoca()
+        {
+            string epoca = "";
+            bool valid = false;
+            do
+            {
+                Console.WriteLine("Indique con AC o DC la epoca de la fecha");
+                epoca = Console.ReadLine().ToUpper().Trim();
+                if((epoca.Equals("AC")) || epoca.Equals("DC"))
+                {
+                    valid = true;
+                }
+                else
+                {
+                    Console.WriteLine("Debe indicar la epoca de la fecha con AD o DC...");
+                    Console.ReadKey();
+                }
+            }
+            while (!valid);
+            return epoca;
         }
     }
 }
