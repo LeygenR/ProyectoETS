@@ -1,7 +1,6 @@
 ﻿using System;
 namespace ProyectoETS
 {
-
     /// <summary>
     /// Estructura de fechas y DateTime;
     /// </summary>
@@ -12,17 +11,24 @@ namespace ProyectoETS
         public int difAnhos;
         public int difDias;
     }
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             DateTime fecha1 = new DateTime();
             DateTime fecha2 = new DateTime();
+            string fecha1Epoca = "";
+            string fecha2Epoca = "";
             const int TOTALFECHAS = 3;
             FechasDif[] fechas = new FechasDif[TOTALFECHAS];
+<<<<<<< HEAD
+
+            if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1,fecha1Epoca))
+=======
             if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1))
+>>>>>>> parent of 318e5dd (cambios SIn nada)
             {
-                if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2))
+                if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2,fecha2Epoca))
                 {
                     fechas = Tratar_Fechas.MeterFechasLista(TOTALFECHAS, fecha1, fecha2);
                     Tratar_Fechas.DiferenciaFechasDadas(ref fechas);
@@ -59,5 +65,5 @@ namespace ProyectoETS
             MakeSeeYou();
         }
     }
-
+   
 }

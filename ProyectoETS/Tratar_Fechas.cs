@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ProyectoETS
 {
-    class Tratar_Fechas
+    public class Tratar_Fechas
     {
         public static FechasDif[] MeterFechasLista(int totalFechas, DateTime fecha1, DateTime fecha2)
         {
@@ -93,14 +93,25 @@ namespace ProyectoETS
                 }
                 else
                 {
+<<<<<<< HEAD
+                    Console.WriteLine("El año : " + anho2.ToString() + " es inferior al año " + INICIOBISIESTO + "\nNo se sumarán dias adicionales, " +
+=======
                     Mensajes.MostrarError("El año : " + anho2.ToString() + " es inferior al año " + INICIOBISIESTO + "\nNo se sumarán dias adicionales, " +
+>>>>>>> parent of 318e5dd (cambios SIn nada)
                                            "ya que fechas inferiores a " + INICIOBISIESTO + " no cuentan para ser años bisiestos");
+                    Console.ReadKey();
                 }
             }
             else
             {
-                Mensajes.MostrarError("El año : " + anho1.ToString() + " es inferior al año " + INICIOBISIESTO + "\nNo se sumarán dias adicionales, " +
-                                       "ya que fechas inferiores a " + INICIOBISIESTO + " no cuentan para ser años bisiestos");
+<<<<<<< HEAD
+                Console.WriteLine("El año : " + anho1.ToString() + " es inferior al año " + INICIOBISIESTO+ "\nNo se sumarán dias adicionales, " +
+=======
+                Mensajes.MostrarError("El año : " + anho1.ToString() + " es inferior al año " + INICIOBISIESTO+ "\nNo se sumarán dias adicionales, " +
+>>>>>>> parent of 318e5dd (cambios SIn nada)
+                                       "ya que fechas inferiores a "+INICIOBISIESTO+ " no cuentan para ser años bisiestos");
+                Console.ReadKey();
+
             }
             return diasSumar;
         }

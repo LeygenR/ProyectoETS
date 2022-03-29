@@ -20,7 +20,7 @@ namespace ProyectoETS
                 Console.WriteLine("Según el formato \"dd/MM/yyyy\".");
                 Console.Write("Introduzca una/otra fecha de nacimiento: ");
                 fecha = Console.ReadLine();
-                if (fecha != "")
+                if(fecha != "")
                 {
                     salida = true;
                 }
