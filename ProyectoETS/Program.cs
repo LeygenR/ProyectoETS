@@ -8,6 +8,8 @@ namespace ProyectoETS
     {
         public DateTime fecha1;
         public DateTime fecha2;
+        public string fechaEpoca1;
+        public string fechaEpoca2;
         public int difAnhos;
         public int difDias;
     }
@@ -19,21 +21,16 @@ namespace ProyectoETS
     {
         static void Main(string[] args)
         {
-            DateTime fecha1 = new DateTime();
-            DateTime fecha2 = new DateTime();
-            string fecha1Epoca = "";
-            string fecha2Epoca = "";
             const int TOTALFECHAS = 3;
             FechasDif[] fechas = new FechasDif[TOTALFECHAS];
 
-            if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha1, ref fecha1Epoca))
+            if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fechas[0].fecha1, ref fechas[0].fechaEpoca1))
             {
-                if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fecha2, ref fecha2Epoca))
+                if (Pedir_Check_Fecha.ValidarFormatoFecha(ref fechas[0].fecha2, ref fechas[0].fechaEpoca2))
                 {
-                    fechas = Tratar_Fechas.MeterFechasLista(TOTALFECHAS, fecha1, fecha2);
-                    Tratar_Fechas.DiferenciaFechasDadas(ref fechas, fecha1Epoca, fecha2Epoca);
+                    Tratar_Fechas.MeterFechasLista(TOTALFECHAS,ref fechas);
+                    Tratar_Fechas.DiferenciaFechasDadas(fechas);
                     Mostrado.MostrarDiferencia(fechas);
-
                 }
             }
             Mostrado.MakeSeeYou();

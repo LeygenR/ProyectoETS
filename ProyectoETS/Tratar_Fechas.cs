@@ -3,17 +3,18 @@ namespace ProyectoETS
 {
     public class Tratar_Fechas
     {
-        public static FechasDif[] MeterFechasLista(int totalFechas, DateTime fecha1, DateTime fecha2)
+        public static void MeterFechasLista(int totalFechas, ref FechasDif[] fechas)
         {
-            FechasDif[] fechas = new FechasDif[totalFechas];
             DateTime fechaActual = DateTime.Now;
-            fechas[0].fecha1 = fecha1;
-            fechas[0].fecha2 = fecha2;
-            fechas[1].fecha1 = fecha1;
+            fechas[1].fecha1 = fechas[0].fecha1;
+            fechas[1].fechaEpoca1 = fechas[0].fechaEpoca1;
             fechas[1].fecha2 = fechaActual;
-            fechas[2].fecha1 = fecha2;
+            fechas[1].fechaEpoca2 = "DC";
+
+            fechas[2].fecha1 = fechas[0].fecha2;
+            fechas[2].fechaEpoca1 = fechas[0].fechaEpoca2;
             fechas[2].fecha2 = fechaActual;
-            return fechas;
+            fechas[2].fechaEpoca2 = "DC";
         }
         /// <summary>
         /// Solicita la diferencia en años y dias entre dos fechas, los resultado se devuelve por referencias
@@ -22,15 +23,15 @@ namespace ProyectoETS
         /// <param name="fecha2"></param>
         /// <param name="diferenciaAnhos"></param>
         /// <param name="difDias"></param>
-        public static void DiferenciaFechasDadas(ref FechasDif[] fechas, string fecha1Epoca, string fecha2Epoca)
+        public static void DiferenciaFechasDadas(FechasDif[] fechas)
         {
             int anho1 = 0;
             int anho2 = 0;
             for (int count = 0; count < fechas.Length; count++)
             {
-                int diferenciaAnhos = CalcularDiferenciaAnhos(fechas[count].fecha1, fechas[count].fecha2, fecha1Epoca, fecha2Epoca, ref anho1, ref anho2);
+                int diferenciaAnhos = CalcularDiferenciaAnhos(fechas[count].fecha1, fechas[count].fecha2, fechas[count].fechaEpoca1, fechas[count].fechaEpoca2, ref anho1, ref anho2);
                 fechas[count].difAnhos = diferenciaAnhos;
-                fechas[count].difDias = CalcularDiferenciaDias(fechas[count].fecha1,fechas[count].fecha2,anho1, anho2);
+                fechas[count].difDias = CalcularDiferenciaDias(fechas[count].fecha1, fechas[count].fecha2, anho1, anho2, fechas[count].fechaEpoca1, fechas[count].fechaEpoca2);
             }
         }
         private static int CalcularDiferenciaAnhos(DateTime fecha1, DateTime fecha2, string fecha1Epoca, string fecha2Epoca, ref int anho1, ref int anho2)
@@ -41,6 +42,7 @@ namespace ProyectoETS
             {
                 anho1 = anho1 * (-1);
             }
+
             if (fecha2Epoca.Equals("AC"))
             {
                 anho2 = anho2 * (-1);
@@ -65,10 +67,27 @@ namespace ProyectoETS
         /// <param name="anho1"></param>
         /// <param name="anho2"></param>
         /// <returns>INT Diferencia dias entre fechas</returns>
-        public static int CalcularDiferenciaDias(DateTime fecha1,DateTime fecha2,int anho1, int anho2)
+        public static int CalcularDiferenciaDias(DateTime fecha1, DateTime fecha2, int anho1, int anho2, string fecha1Epoca, string fecha2Epoca)
         {
-            int dias = (anho1-anho2)*365;
-            if(dias < 0)
+            int dias = 0;
+
+            if ((fecha1Epoca.Equals("AC") && (fecha2Epoca.Equals("DC"))))
+            {
+                dias = CalcularDiasAC(fecha1, fecha2);
+            }
+            else
+            {
+                if ((fecha1Epoca.Equals("DC") && (fecha2Epoca.Equals("AC"))))
+                {
+                    dias = CalcularDiasAC(fecha2, fecha1);
+                }
+                else
+                {
+                    calcularDiasDiff(fecha1, fecha2);
+                }
+            }
+
+            if (dias < 0)
             {
                 dias = dias * (-1);
             }
@@ -102,6 +121,39 @@ namespace ProyectoETS
                 }
             }
             return diasSumar;
+        }
+        public static int CalcularDiasAC(DateTime fechaAC, DateTime fechaDC)
+        {
+
+            string fechaCambiar = fechaDC.ToShortDateString();
+            string fechaArreglada2 = "";
+            for (int count = 0; count < fechaCambiar.Length - 4; count++)
+            {
+                fechaArreglada2 += fechaCambiar[count];
+            }
+
+            string añoAdicional = Convert.ToString((fechaDC.Year) + fechaAC.Year * 2);
+            string año = "";
+            for (int count = 0; count < 4 - (añoAdicional.ToString().Length); count++)
+            {
+                año += "0";
+            }
+
+            año += añoAdicional.ToString();
+            fechaArreglada2 += año;
+
+            int dias = calcularDiasDiff(fechaAC, Convert.ToDateTime(fechaArreglada2));
+
+            return dias;
+        }
+
+        public static int calcularDiasDiff(DateTime fecha1, DateTime fecha2)
+        {
+            TimeSpan difFechas;
+
+            difFechas = fecha1 - fecha2;
+            int dias = difFechas.Days;
+            return dias;
         }
     }
 }
