@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace ProyectoETS
 {
-    class Pedir_Check_Fecha
+    public class Pedir_Check_Fecha
     {
         /// <summary>
         /// Función de pedida e introducción de la fecha.
@@ -34,10 +34,10 @@ namespace ProyectoETS
         }
 
         /// <summary>
-        /// Comprueba que la fecha está en el formato correcto.
+        /// Comprueba que la fecha está en el formato correcto además de preguntar la epoca "AC o DC".
         /// </summary>
         /// <param name="fechaValid"></param>
-        /// <returns>Fecha valida para el datetime</returns>
+        /// <returns>Fecha valida para el datetime y fechaEpoca por Ref </returns>
         public static bool ValidarFormatoFecha(ref DateTime fechaValid, ref string fechaEpoca)
         {
             bool noerror = false;

@@ -122,6 +122,12 @@ namespace ProyectoETS
             }
             return diasSumar;
         }
+        /// <summary>
+        /// Calcular diferencia dias entre 2 fechas si una de ellas es AC
+        /// </summary>
+        /// <param name="fechaAC"></param>
+        /// <param name="fechaDC"></param>
+        /// <returns>Diferencia dias</returns>
         public static int CalcularDiasAC(DateTime fechaAC, DateTime fechaDC)
         {
 
@@ -129,18 +135,18 @@ namespace ProyectoETS
             string fechaArreglada2 = "";
             for (int count = 0; count < fechaCambiar.Length - 4; count++)
             {
-                fechaArreglada2 += fechaCambiar[count];
+                fechaArreglada2 += fechaCambiar[count]; //Guardamos en un string la fecha DC pero solo hasta el mes, no añadirmos el año , ejemplo : 19/10/
             }
 
-            string añoAdicional = Convert.ToString((fechaDC.Year) + fechaAC.Year * 2);
+            string añoAdicional = Convert.ToString((fechaDC.Year) + fechaAC.Year * 2); //a la fecha DC le sumamos el resultado de pasar la fecha AC a DC, para que la distancia entre la fecha pasa a DC , y la segunda fecha DC, se la misma que al principio
             string año = "";
-            for (int count = 0; count < 4 - (añoAdicional.ToString().Length); count++)
+            for (int count = 0; count < 4 - (añoAdicional.ToString().Length); count++) // Creamos los 0 a la izquierda de la parte del año de la fecha
             {
-                año += "0";
+                año += "0"; 
             }
 
-            año += añoAdicional.ToString();
-            fechaArreglada2 += año;
+            año += añoAdicional.ToString(); // añadimos el año con los 0 , para tener un formato de año valido
+            fechaArreglada2 += año; // sumamos el año al string de fecha que dejamos a medias
 
             int dias = calcularDiasDiff(fechaAC, Convert.ToDateTime(fechaArreglada2));
 
